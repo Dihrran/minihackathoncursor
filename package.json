@@ -1,0 +1,17 @@
+{
+  "name": "uniguide",
+  "version": "1.0.0",
+  "description": "UniGuide — UOW Malaysia campus companion",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node server.js",
+    "tunnel": "node tunnel.js"
+  },
+  "dependencies": {
+    "express": "^4.21.0"
+  },
+  "devDependencies": {
+    "localtunnel": "^2.0.2"
+  }
+}

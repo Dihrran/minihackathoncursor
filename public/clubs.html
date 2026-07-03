@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Club Explorer — UniGuide</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Libre+Baskerville:wght@700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/css/tokens.css">
+  <link rel="stylesheet" href="/css/base.css">
+  <link rel="stylesheet" href="/css/components.css">
+  <link rel="stylesheet" href="/css/layout.css">
+</head>
+<body>
+  <div class="ds-page-banner" id="page-banner">
+    <div class="ds-page-banner-inner">
+      <h1 class="ds-page-title">Club Explorer</h1>
+      <p class="ds-page-subtitle">Browse clubs and societies across Tech, Arts, Sports, Cultural, and Academic communities.</p>
+    </div>
+  </div>
+  <main id="main-content" class="ds-main">
+    <div id="explorer-view">
+      <div style="display:flex;flex-wrap:wrap;gap:1rem;margin-bottom:1.5rem;align-items:center;">
+        <div id="category-filters"></div>
+        <div style="flex:1;min-width:14rem;max-width:22rem;" id="club-search"></div>
+      </div>
+      <div id="clubs-list" class="club-list"></div>
+      <div id="empty-state" hidden></div>
+    </div>
+    <div id="detail-view" hidden></div>
+  </main>
+  <script type="module" src="/js/pages/clubs.js"></script>
+</body>
+</html>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Campus Map — UniGuide</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Libre+Baskerville:wght@700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" crossorigin="">
+  <link rel="stylesheet" href="/css/tokens.css">
+  <link rel="stylesheet" href="/css/base.css">
+  <link rel="stylesheet" href="/css/components.css">
+  <link rel="stylesheet" href="/css/layout.css">
+  <style>
+    #campus-map { height: 28rem; z-index: 1; border: 2px solid var(--ds-black); }
+    @media (min-width: 1024px) { #campus-map { height: calc(100vh - 16rem); min-height: 24rem; } }
+    .map-layout { display: grid; gap: 1rem; }
+    @media (min-width: 1024px) { .map-layout { grid-template-columns: 1fr 22rem; } }
+  </style>
+</head>
+<body>
+  <div class="ds-page-banner">
+    <div class="ds-page-banner-inner">
+      <h1 class="ds-page-title">Campus Map</h1>
+      <p class="ds-page-subtitle">UOW Malaysia · Utropolis Glenmarie, Jalan Kontraktor U1/14, Seksyen U1, 40150 Shah Alam, Selangor</p>
+    </div>
+  </div>
+  <main id="main-content" class="ds-main">
+    <div style="margin-bottom:1rem;display:flex;flex-wrap:wrap;gap:1rem;align-items:center;">
+      <div id="map-filters"></div>
+      <div style="flex:1;min-width:14rem;max-width:20rem;" id="map-search"></div>
+    </div>
+    <div class="map-layout">
+      <div id="campus-map" class="ds-card ds-card-static" style="overflow:hidden;padding:0;"></div>
+      <div id="map-panel"></div>
+    </div>
+  </main>
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" crossorigin=""></script>
+  <script type="module" src="/js/pages/map.js"></script>
+</body>
+</html>

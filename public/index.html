@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>UniGuide — UOW Malaysia Campus Companion</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Libre+Baskerville:wght@700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/css/tokens.css">
+  <link rel="stylesheet" href="/css/base.css">
+  <link rel="stylesheet" href="/css/components.css">
+  <link rel="stylesheet" href="/css/layout.css">
+  <link rel="stylesheet" href="/css/home.css">
+</head>
+<body class="page-home">
+  <main id="main-content" class="ds-main home-main">
+    <section class="home-hero" aria-label="Welcome">
+      <div class="home-hero-bg" role="img" aria-label="University of Malaya campus entrance"></div>
+      <div class="home-hero-overlay">
+        <h1 class="home-hero-title">Be a Student</h1>
+        <p class="home-hero-subtitle">Find your place on Campus</p>
+      </div>
+      <form class="home-hero-filter" id="hero-filter-form" aria-label="Campus search filters">
+        <div class="home-hero-filter-inner">
+          <div class="home-filter-group">
+            <label for="filter-category">By Category:</label>
+            <select id="filter-category" name="category">
+              <option value="">All</option>
+              <option value="Locations">Locations</option>
+              <option value="Food">Food</option>
+              <option value="Study Spaces">Study Spaces</option>
+              <option value="Clubs">Clubs</option>
+              <option value="Lecturers">Lecturers</option>
+              <option value="Events">Events</option>
+              <option value="Services">Services</option>
+            </select>
+          </div>
+          <div class="home-filter-group">
+            <label for="filter-section">By Section:</label>
+            <select id="filter-section" name="section">
+              <option value="">All</option>
+              <option value="/map.html">Campus Map</option>
+              <option value="/study-spaces.html">Study Spaces</option>
+              <option value="/food.html">Food Guide</option>
+              <option value="/clubs.html">Clubs</option>
+              <option value="/lecturers.html">Lecturers</option>
+              <option value="/events.html">Events</option>
+              <option value="/services.html">Services</option>
+              <option value="/freshman.html">Freshman Guide</option>
+            </select>
+          </div>
+          <button type="submit" class="home-filter-go">GO</button>
+        </div>
+      </form>
+    </section>
+
+    <section class="home-cta">
+      <div class="home-cta-inner">
+        <p class="home-cta-text">At UOW Malaysia, explore what interests you, find the resources you need, and prepare for the student you were meant to become.</p>
+        <a href="/map.html" class="home-cta-btn">Explore Campus</a>
+      </div>
+    </section>
+
+    <div class="home-content">
+      <section>
+        <h2>Quick Access</h2>
+        <div id="quick-access" class="home-quick-grid"></div>
+      </section>
+      <section>
+        <h2>Announcements</h2>
+        <div id="announcements" style="display:flex;flex-direction:column;gap:0.75rem;"></div>
+      </section>
+      <section>
+        <h2>Today's Highlights</h2>
+        <div id="highlights" class="home-highlights"></div>
+      </section>
+    </div>
+  </main>
+  <script type="module" src="/js/pages/dashboard.js"></script>
+</body>
+</html>
