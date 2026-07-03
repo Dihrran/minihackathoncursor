@@ -1,0 +1,45 @@
+export const events = [
+  { id: 'ev-1', title: 'Intro to Python Workshop', type: 'workshop', date: '2026-07-05', time: '2:00 PM – 4:00 PM', venue: 'Block A Lab 1', organizer: 'Coding Society', registration: 'https://example.com/register/python' },
+  { id: 'ev-2', title: 'Campus Photo Walk', type: 'club', date: '2026-07-06', time: '9:00 AM – 11:00 AM', venue: 'Main Gate', organizer: 'Photography Club', registration: 'https://example.com/register/photo' },
+  { id: 'ev-3', title: 'Inter-Faculty Debate', type: 'competition', date: '2026-07-08', time: '6:00 PM – 9:00 PM', venue: 'Block B Lecture Hall', organizer: 'Debate Society', registration: 'https://example.com/register/debate' },
+  { id: 'ev-4', title: 'Git & GitHub Basics', type: 'workshop', date: '2026-07-11', time: '3:00 PM – 5:00 PM', venue: 'Block A Lab 2', organizer: 'Coding Society', registration: 'https://example.com/register/git' },
+  { id: 'ev-5', title: 'Chinese Calligraphy Workshop', type: 'club', date: '2026-07-12', time: '1:00 PM – 3:00 PM', venue: 'Student Centre', organizer: 'Chinese Cultural Society', registration: 'https://example.com/register/calligraphy' },
+  { id: 'ev-6', title: 'Food Bank Charity Drive', type: 'club', date: '2026-07-05', time: '10:00 AM – 2:00 PM', venue: 'Parking A', organizer: 'Volunteer Club', registration: 'https://example.com/register/foodbank' },
+  { id: 'ev-7', title: 'AI in Industry — Guest Talk', type: 'guest', date: '2026-07-18', time: '2:00 PM – 4:00 PM', venue: 'Main Auditorium', organizer: 'IEEE Student Branch', registration: 'https://example.com/register/ai-talk' },
+  { id: 'ev-8', title: 'Startup Pitch Night', type: 'competition', date: '2026-07-22', time: '7:00 PM – 10:00 PM', venue: 'Block B Seminar 101', organizer: 'Entrepreneurship Club', registration: 'https://example.com/register/pitch' },
+  { id: 'ev-9', title: 'PCB Design Workshop', type: 'workshop', date: '2026-07-25', time: '10:00 AM – 1:00 PM', venue: 'Block C Workshop', organizer: 'IEEE Student Branch', registration: 'https://example.com/register/pcb' },
+  { id: 'ev-10', title: 'Improv Comedy Night', type: 'club', date: '2026-07-28', time: '8:00 PM – 10:00 PM', venue: 'Student Centre', organizer: 'Drama Club', registration: 'https://example.com/register/improv' },
+  { id: 'ev-11', title: 'Career Fair 2026', type: 'career', date: '2026-07-10', time: '10:00 AM – 5:00 PM', venue: 'Main Auditorium & Student Centre', organizer: 'Career Services', registration: 'https://example.com/register/career-fair' },
+  { id: 'ev-12', title: 'Freshman Orientation Day 1', type: 'orientation', date: '2026-08-01', time: '9:00 AM – 5:00 PM', venue: 'Main Auditorium', organizer: 'Student Affairs', registration: 'https://example.com/register/orientation' },
+  { id: 'ev-13', title: 'Freshman Orientation Day 2', type: 'orientation', date: '2026-08-02', time: '9:00 AM – 3:00 PM', venue: 'Various campus locations', organizer: 'Student Affairs', registration: 'https://example.com/register/orientation' },
+  { id: 'ev-14', title: 'Gamelan Workshop', type: 'club', date: '2026-07-19', time: '4:00 PM – 6:00 PM', venue: 'Student Centre', organizer: 'Malay Cultural Society', registration: 'https://example.com/register/gamelan' },
+  { id: 'ev-15', title: 'Tree Planting Day', type: 'club', date: '2026-07-20', time: '8:00 AM – 12:00 PM', venue: 'Campus Green', organizer: 'Green Campus Initiative', registration: 'https://example.com/register/trees' },
+  { id: 'ev-16', title: 'Bharatanatyam Workshop', type: 'club', date: '2026-07-16', time: '3:00 PM – 5:00 PM', venue: 'Student Centre', organizer: 'Indian Cultural Society', registration: 'https://example.com/register/dance' },
+  { id: 'ev-17', title: 'Lightroom Editing Basics', type: 'workshop', date: '2026-07-14', time: '2:00 PM – 4:00 PM', venue: 'Block A Lab 1', organizer: 'Photography Club', registration: 'https://example.com/register/lightroom' },
+  { id: 'ev-18', title: 'Public Speaking Masterclass', type: 'workshop', date: '2026-07-08', time: '10:00 AM – 12:00 PM', venue: 'Block B Seminar 101', organizer: 'Debate Society', registration: 'https://example.com/register/speaking' },
+  { id: 'ev-19', title: 'Valorant Scrim Night', type: 'club', date: '2026-07-04', time: '8:00 PM – 11:00 PM', venue: 'Block A Lab 2', organizer: 'Esports Club', registration: 'https://example.com/register/valorant' },
+  { id: 'ev-20', title: 'Research Methods Seminar', type: 'guest', date: '2026-07-24', time: '11:00 AM – 1:00 PM', venue: 'Library Seminar Room', organizer: 'Academic Office', registration: 'https://example.com/register/research' },
+  { id: 'ev-21', title: 'Arduino for Beginners', type: 'workshop', date: '2026-07-15', time: '2:00 PM – 5:00 PM', venue: 'Block C Workshop', organizer: 'Robotics Club', registration: 'https://example.com/register/arduino' },
+  { id: 'ev-22', title: 'IV Debate League Round 2', type: 'competition', date: '2026-07-20', time: '5:00 PM – 9:00 PM', venue: 'Block B Lecture Hall', organizer: 'Debate Society', registration: 'https://example.com/register/iv-debate' },
+  { id: 'ev-23', title: 'Mental Health Awareness Talk', type: 'guest', date: '2026-08-05', time: '12:00 PM – 1:30 PM', venue: 'Student Centre', organizer: 'Counselling Unit', registration: 'https://example.com/register/mental-health' },
+  { id: 'ev-24', title: 'Library Research Skills', type: 'workshop', date: '2026-08-06', time: '10:00 AM – 12:00 PM', venue: 'Library L2', organizer: 'Library Services', registration: 'https://example.com/register/library' },
+  { id: 'ev-25', title: 'Industry Networking Lunch', type: 'career', date: '2026-08-08', time: '12:00 PM – 2:00 PM', venue: 'Campus Cafeteria', organizer: 'Career Services', registration: 'https://example.com/register/networking' },
+];
+
+export const eventTypeLabels = {
+  workshop: 'Workshop',
+  competition: 'Competition',
+  club: 'Club Event',
+  orientation: 'Orientation',
+  career: 'Career Fair',
+  guest: 'Guest Lecture',
+};
+
+export const eventTypeColors = {
+  workshop: '#3b82f6',
+  competition: '#ef4444',
+  club: '#8b5cf6',
+  orientation: '#10b981',
+  career: '#f59e0b',
+  guest: '#6366f1',
+};

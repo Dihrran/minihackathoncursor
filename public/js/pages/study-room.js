@@ -60,6 +60,7 @@ function initRoomJoin() {
     renderTasks();
     renderChat();
     renderOnline();
+    renderRanking();
     heartbeat();
   });
 }
@@ -219,7 +220,9 @@ function renderPomodoro() {
   progress.style.width = `${totalSeconds > 0 ? (secondsLeft / totalSeconds) * 100 : 0}%`;
   progress.classList.toggle('is-break', cfg.break);
   document.getElementById('pomo-start').textContent = running ? 'Pause' : 'Start';
-  document.getElementById('pomo-session').innerHTML = `Sessions: <strong>${sessions}</strong>`;
+  const myMinutes = getUserStudyMinutes(userName);
+  document.getElementById('pomo-session').innerHTML =
+    `Sessions: <strong>${sessions}</strong> · <span id="pomo-hours">${formatStudyHours(myMinutes)} studied</span>`;
 
   const modesEl = document.getElementById('pomo-modes');
   modesEl.innerHTML = Object.entries(MODES)
@@ -245,6 +248,7 @@ function pomoTick() {
     if (mode === 'focus') {
       sessions += 1;
       saveSessions();
+      addStudyMinutes(MODES.focus.minutes);
       mode = sessions % 4 === 0 ? 'long' : 'short';
     } else {
       mode = 'focus';
@@ -402,7 +406,84 @@ function initStorageSync() {
   window.addEventListener('storage', (e) => {
     if (e.key === chatKey()) renderChat();
     if (e.key === presenceKey()) renderOnline();
+    if (e.key === rankingKey()) renderRanking();
   });
+}
+
+/* ── Study hours ranking ── */
+function rankingKey() {
+  return `uniguide-ranking-${roomId}`;
+}
+
+function getRanking() {
+  try {
+    const raw = localStorage.getItem(rankingKey());
+    return raw ? JSON.parse(raw) : {};
+  } catch {
+    return {};
+  }
+}
+
+function saveRanking(map) {
+  localStorage.setItem(rankingKey(), JSON.stringify(map));
+}
+
+function getUserStudyMinutes(name) {
+  return getRanking()[name] || 0;
+}
+
+function addStudyMinutes(minutes) {
+  const map = getRanking();
+  map[userName] = (map[userName] || 0) + minutes;
+  saveRanking(map);
+  renderRanking();
+}
+
+function formatStudyHours(minutes) {
+  const h = Math.floor(minutes / 60);
+  const m = minutes % 60;
+  if (h === 0) return `${m}m`;
+  if (m === 0) return `${h}h`;
+  return `${h}h ${m}m`;
+}
+
+const RANK_MEDALS = ['🥇', '🥈', '🥉'];
+
+function renderRanking() {
+  const listEl = document.getElementById('ranking-list');
+  const emptyEl = document.getElementById('ranking-empty');
+  const youEl = document.getElementById('ranking-you');
+  const entries = Object.entries(getRanking())
+    .filter(([, mins]) => mins > 0)
+    .sort((a, b) => b[1] - a[1]);
+
+  if (entries.length === 0) {
+    listEl.innerHTML = '';
+    emptyEl.hidden = false;
+    youEl.textContent = '';
+    return;
+  }
+
+  emptyEl.hidden = true;
+  listEl.innerHTML = entries
+    .map(([name, mins], i) => {
+      const rank = i + 1;
+      const medal = RANK_MEDALS[i] || rank;
+      return `
+        <li class="ranking-item${name === userName ? ' is-self' : ''}">
+          <span class="ranking-rank">${medal}</span>
+          <span class="ranking-name">${escapeHtml(name)}</span>
+          <span class="ranking-hours">${formatStudyHours(mins)}</span>
+        </li>`;
+    })
+    .join('');
+
+  const myIndex = entries.findIndex(([name]) => name === userName);
+  if (myIndex >= 0) {
+    youEl.textContent = `You are #${myIndex + 1} with ${formatStudyHours(entries[myIndex][1])} in this room.`;
+  } else {
+    youEl.textContent = 'Complete a focus session to join the ranking.';
+  }
 }
 
 /* ── Boot ── */
@@ -414,6 +495,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initChat();
   initPresence();
   initStorageSync();
+  renderRanking();
 
   if ('Notification' in window && Notification.permission === 'default') {
     Notification.requestPermission();

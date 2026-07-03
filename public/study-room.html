@@ -34,9 +34,10 @@
   </div>
 
   <main id="main-content" class="ds-main study-room-main">
-    <div class="study-room-grid">
-      <!-- Left: Pomodoro -->
-      <aside class="study-room-panel study-room-panel--pomo" aria-label="Pomodoro timer">
+    <section class="study-room-workspace" aria-label="Study workspace">
+      <div class="study-room-grid">
+        <!-- Left: Pomodoro -->
+        <aside class="study-room-panel study-room-panel--pomo" aria-label="Pomodoro timer">
         <h2 class="study-room-panel-title">Pomodoro</h2>
         <div id="pomo-modes" class="pomo-modes" role="tablist" aria-label="Timer mode"></div>
         <div class="ds-card ds-card-static pomo-timer-card">
@@ -50,7 +51,7 @@
             <button type="button" class="ds-btn ds-btn-secondary" id="pomo-reset">Reset</button>
           </div>
         </div>
-        <p class="pomo-session" id="pomo-session">Sessions: <strong>0</strong></p>
+        <p class="pomo-session" id="pomo-session">Sessions: <strong>0</strong> · <span id="pomo-hours">0m studied</span></p>
       </aside>
 
       <!-- Center: Tasks -->
@@ -86,7 +87,20 @@
           </form>
         </div>
       </aside>
-    </div>
+      </div>
+    </section>
+
+    <section class="study-room-section study-room-section--ranking" aria-label="Study hours ranking">
+      <div class="study-room-section-head">
+        <h2 class="study-room-section-title">Study Hours Ranking</h2>
+        <p class="study-room-section-desc">Room leaderboard by completed focus time — earn minutes with each pomodoro session.</p>
+      </div>
+      <div class="ds-card ds-card-static ranking-card">
+        <ol id="ranking-list" class="ranking-list" aria-label="Ranked by study hours"></ol>
+        <p id="ranking-empty" class="ranking-empty" hidden>No study hours yet. Complete a focus session to appear on the board.</p>
+        <p class="ranking-you" id="ranking-you" aria-live="polite"></p>
+      </div>
+    </section>
   </main>
   <script type="module" src="/js/pages/study-room.js"></script>
 </body>

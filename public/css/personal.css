@@ -446,3 +446,95 @@
   padding: 0.5rem 1rem;
   flex-shrink: 0;
 }
+
+/* Study room sections */
+.study-room-workspace {
+  margin-bottom: 0;
+}
+
+.study-room-section {
+  margin-top: 2.5rem;
+  padding-top: 2rem;
+  border-top: 3px solid var(--ds-black);
+}
+
+.study-room-section-head {
+  margin-bottom: 1.25rem;
+}
+
+.study-room-section-title {
+  margin: 0 0 0.35rem;
+  font-size: 1.35rem;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+}
+
+.study-room-section-desc {
+  margin: 0;
+  font-size: 0.9rem;
+  color: var(--ds-text-muted);
+}
+
+.ranking-card {
+  padding: 0;
+  overflow: hidden;
+}
+
+.ranking-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.ranking-item {
+  display: grid;
+  grid-template-columns: 2.5rem 1fr auto;
+  gap: 0.75rem;
+  align-items: center;
+  padding: 0.85rem 1.25rem;
+  border-bottom: 2px solid var(--ds-border);
+}
+
+.ranking-item:last-child {
+  border-bottom: none;
+}
+
+.ranking-item.is-self {
+  background: var(--ds-yellow);
+}
+
+.ranking-rank {
+  font-size: 1.1rem;
+  font-weight: 800;
+  text-align: center;
+}
+
+.ranking-name {
+  font-weight: 700;
+  word-break: break-word;
+}
+
+.ranking-hours {
+  font-size: 0.85rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  white-space: nowrap;
+}
+
+.ranking-empty {
+  margin: 0;
+  padding: 2rem 1.25rem;
+  text-align: center;
+  color: var(--ds-text-muted);
+  font-size: 0.9rem;
+}
+
+.ranking-you {
+  margin: 0;
+  padding: 0.85rem 1.25rem;
+  font-size: 0.85rem;
+  font-weight: 600;
+  background: var(--ds-surface-hover);
+  border-top: 2px solid var(--ds-black);
+}
