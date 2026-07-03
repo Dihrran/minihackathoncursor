@@ -48,6 +48,7 @@ export function injectLayout(options = {}) {
         </button>
       </div>
       <div class="ds-header-actions">
+        <a href="/study-room.html" class="ds-study-room-btn${pageId === 'study-room' ? ' is-active' : ''}" aria-label="Open study room">Study Room</a>
         <button type="button" class="ds-menu-toggle" id="mobile-menu-btn" aria-label="Open menu" aria-expanded="false">☰</button>
       </div>
     </div>
@@ -79,6 +80,7 @@ export function injectLayout(options = {}) {
   drawer.setAttribute('aria-hidden', 'true');
   drawer.innerHTML = `
     <nav aria-label="Mobile navigation">
+      <a href="/study-room.html" class="ds-mobile-nav-link${pageId === 'study-room' ? ' is-active' : ''}">📖 Study Room</a>
       ${NAV_ITEMS.map((item) => `
         <a href="${item.href}" class="ds-mobile-nav-link${pageId === item.id ? ' is-active' : ''}">${item.icon} ${item.label}</a>
       `).join('')}

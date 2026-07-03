@@ -1,0 +1,448 @@
+/* Personal tools — task manager & pomodoro */
+
+.personal-nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.personal-nav-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0.45rem 0.9rem;
+  font-size: 0.8rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+  border: 2px solid var(--ds-black);
+  background: var(--ds-white);
+  color: var(--ds-black);
+  text-decoration: none;
+  transition: background 0.15s;
+}
+
+.personal-nav-link:hover {
+  background: var(--ds-yellow);
+  text-decoration: none;
+  color: var(--ds-black);
+}
+
+.personal-nav-link.is-active {
+  background: var(--ds-black);
+  color: var(--ds-white);
+}
+
+.ds-field-input {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  font-size: 1rem;
+  border: 2px solid var(--ds-black);
+  border-radius: 0;
+  background: var(--ds-surface);
+  color: var(--ds-text);
+  font-family: inherit;
+}
+
+.ds-field-input:focus {
+  outline: none;
+  box-shadow: 4px 4px 0 var(--ds-black);
+}
+
+/* Task manager */
+.task-toolbar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1.25rem;
+}
+
+.task-stats {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--ds-text-muted);
+}
+
+.task-add-form {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  align-items: stretch;
+}
+
+.task-add-form .ds-field-input {
+  flex: 1;
+  min-width: 12rem;
+}
+
+.task-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.task-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+  padding: 1rem 1.25rem;
+  background: var(--ds-surface);
+  border: 2px solid var(--ds-black);
+  box-shadow: var(--ds-shadow);
+  transition: transform 0.15s, box-shadow 0.15s, opacity 0.15s;
+}
+
+.task-item:hover {
+  transform: translate(-2px, -2px);
+  box-shadow: var(--ds-shadow-hover);
+}
+
+.task-item.is-done {
+  opacity: 0.65;
+  box-shadow: 2px 2px 0 var(--ds-black);
+}
+
+.task-item.is-done:hover {
+  transform: none;
+  box-shadow: 2px 2px 0 var(--ds-black);
+}
+
+.task-check {
+  width: 1.35rem;
+  height: 1.35rem;
+  margin-top: 0.1rem;
+  flex-shrink: 0;
+  accent-color: var(--ds-black);
+  cursor: pointer;
+}
+
+.task-body {
+  flex: 1;
+  min-width: 0;
+}
+
+.task-title {
+  margin: 0;
+  font-size: 1rem;
+  font-weight: 600;
+  line-height: 1.4;
+  word-break: break-word;
+}
+
+.task-item.is-done .task-title {
+  text-decoration: line-through;
+  color: var(--ds-text-muted);
+}
+
+.task-meta {
+  margin-top: 0.35rem;
+  font-size: 0.75rem;
+  color: var(--ds-text-muted);
+}
+
+.task-delete {
+  flex-shrink: 0;
+  width: 2rem;
+  height: 2rem;
+  border: 2px solid var(--ds-black);
+  background: var(--ds-white);
+  color: var(--ds-black);
+  cursor: pointer;
+  font-size: 1rem;
+  line-height: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.15s;
+}
+
+.task-delete:hover {
+  background: #fee2e2;
+}
+
+/* Pomodoro */
+.pomo-layout {
+  display: grid;
+  gap: 1.5rem;
+  max-width: 36rem;
+  margin: 0 auto;
+}
+
+.pomo-modes {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  justify-content: center;
+}
+
+.pomo-timer-card {
+  text-align: center;
+  padding: 2rem 1.5rem;
+}
+
+.pomo-display {
+  font-size: clamp(3.5rem, 14vw, 5.5rem);
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  line-height: 1;
+  margin: 0 0 0.5rem;
+  font-variant-numeric: tabular-nums;
+}
+
+.pomo-label {
+  margin: 0 0 1.5rem;
+  font-size: 0.85rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--ds-text-muted);
+}
+
+.pomo-progress {
+  height: 0.5rem;
+  background: #e5e7eb;
+  border: 2px solid var(--ds-black);
+  margin-bottom: 1.5rem;
+  overflow: hidden;
+}
+
+.pomo-progress-fill {
+  height: 100%;
+  background: var(--ds-yellow);
+  transition: width 0.3s linear;
+}
+
+.pomo-progress-fill.is-break {
+  background: var(--ds-orange);
+}
+
+.pomo-controls {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  justify-content: center;
+}
+
+.pomo-session {
+  text-align: center;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--ds-text-muted);
+}
+
+.pomo-session strong {
+  color: var(--ds-black);
+}
+
+/* Study room — unified layout */
+.study-room-banner .ds-page-banner-inner {
+  max-width: none;
+}
+
+.study-room-banner-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  align-items: flex-start;
+  justify-content: space-between;
+}
+
+.study-room-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  align-items: flex-end;
+  min-width: min(100%, 28rem);
+}
+
+.study-room-field-label {
+  font-size: 0.7rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  width: 100%;
+  margin-bottom: -0.25rem;
+}
+
+.study-room-field {
+  flex: 1;
+  min-width: 7rem;
+  font-size: 0.9rem;
+  padding: 0.55rem 0.75rem;
+}
+
+.study-room-join {
+  min-height: 2.5rem;
+  padding: 0.5rem 1rem;
+}
+
+.study-room-url-hint {
+  margin: 1rem 0 0;
+  font-size: 0.8rem;
+  opacity: 0.7;
+  word-break: break-all;
+}
+
+.study-room-main {
+  max-width: none;
+  padding-top: 1.25rem;
+}
+
+.study-room-grid {
+  display: grid;
+  gap: 1.25rem;
+  grid-template-columns: 1fr;
+  align-items: start;
+}
+
+@media (min-width: 900px) {
+  .study-room-grid {
+    grid-template-columns: minmax(14rem, 18rem) minmax(0, 1fr) minmax(16rem, 22rem);
+  }
+}
+
+.study-room-panel-title {
+  margin: 0 0 0.75rem;
+  font-size: 0.85rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+.study-room-panel--pomo .pomo-timer-card {
+  padding: 1.25rem 1rem;
+}
+
+.study-room-panel--pomo .pomo-display {
+  font-size: clamp(2.5rem, 8vw, 3.5rem);
+}
+
+.study-room-panel--pomo .pomo-modes {
+  justify-content: flex-start;
+  margin-bottom: 0.75rem;
+}
+
+.study-room-panel--pomo .pomo-modes .ds-chip {
+  font-size: 0.65rem;
+  padding: 0.35rem 0.6rem;
+  min-height: auto;
+}
+
+.study-room-panel--pomo .pomo-controls .ds-btn {
+  min-height: 2.25rem;
+  padding: 0.45rem 1rem;
+  font-size: 0.75rem;
+}
+
+.study-room-panel--tasks {
+  min-width: 0;
+}
+
+/* Chat sidebar */
+.chat-header {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 0.5rem;
+  margin-bottom: 0.75rem;
+}
+
+.chat-online {
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--ds-text-muted);
+}
+
+.chat-online-dot {
+  display: inline-block;
+  width: 0.5rem;
+  height: 0.5rem;
+  background: var(--ds-success);
+  border: 1px solid var(--ds-black);
+  border-radius: 50%;
+  vertical-align: middle;
+}
+
+.chat-card {
+  display: flex;
+  flex-direction: column;
+  height: min(28rem, calc(100vh - 18rem));
+  min-height: 16rem;
+  padding: 0;
+  overflow: hidden;
+}
+
+.chat-messages {
+  flex: 1;
+  overflow-y: auto;
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.chat-empty {
+  margin: auto;
+  text-align: center;
+  color: var(--ds-text-muted);
+  font-size: 0.9rem;
+}
+
+.chat-msg {
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+  padding: 0.6rem 0.75rem;
+  background: var(--ds-surface-hover);
+  border: 2px solid var(--ds-black);
+  max-width: 95%;
+}
+
+.chat-msg.is-self {
+  align-self: flex-end;
+  background: var(--ds-yellow);
+}
+
+.chat-msg-user {
+  font-size: 0.7rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.chat-msg-text {
+  font-size: 0.9rem;
+  line-height: 1.4;
+  word-break: break-word;
+}
+
+.chat-msg-time {
+  font-size: 0.65rem;
+  color: var(--ds-text-muted);
+}
+
+.chat-form {
+  display: flex;
+  gap: 0.5rem;
+  padding: 0.75rem;
+  border-top: 2px solid var(--ds-black);
+  background: var(--ds-white);
+}
+
+.chat-form .ds-field-input {
+  font-size: 0.9rem;
+  padding: 0.55rem 0.75rem;
+}
+
+.chat-send {
+  min-height: 2.5rem;
+  padding: 0.5rem 1rem;
+  flex-shrink: 0;
+}

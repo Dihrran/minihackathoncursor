@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Study Room — UniGuide</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Libre+Baskerville:wght@700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/css/tokens.css">
+  <link rel="stylesheet" href="/css/base.css">
+  <link rel="stylesheet" href="/css/components.css">
+  <link rel="stylesheet" href="/css/layout.css">
+  <link rel="stylesheet" href="/css/personal.css">
+</head>
+<body>
+  <div class="ds-page-banner study-room-banner">
+    <div class="ds-page-banner-inner">
+      <div class="study-room-banner-row">
+        <div>
+          <h1 class="ds-page-title">Study Room</h1>
+          <p class="ds-page-subtitle">Focus together — pomodoro, tasks, and live chat in one shared space.</p>
+        </div>
+        <div class="study-room-meta">
+          <label class="study-room-field-label" for="room-input">Room</label>
+          <input type="text" id="room-input" class="ds-field-input study-room-field" placeholder="e.g. library-3f" maxlength="40">
+          <label class="study-room-field-label" for="user-input">Your name</label>
+          <input type="text" id="user-input" class="ds-field-input study-room-field" placeholder="Your name" maxlength="30">
+          <button type="button" class="ds-btn ds-btn-primary study-room-join" id="join-room">Join Room</button>
+        </div>
+      </div>
+      <p class="study-room-url-hint" id="room-hint">Share the URL so classmates can join the same room.</p>
+    </div>
+  </div>
+
+  <main id="main-content" class="ds-main study-room-main">
+    <div class="study-room-grid">
+      <!-- Left: Pomodoro -->
+      <aside class="study-room-panel study-room-panel--pomo" aria-label="Pomodoro timer">
+        <h2 class="study-room-panel-title">Pomodoro</h2>
+        <div id="pomo-modes" class="pomo-modes" role="tablist" aria-label="Timer mode"></div>
+        <div class="ds-card ds-card-static pomo-timer-card">
+          <p class="pomo-label" id="pomo-label">Focus</p>
+          <p class="pomo-display" id="pomo-display" aria-live="polite">25:00</p>
+          <div class="pomo-progress" aria-hidden="true">
+            <div class="pomo-progress-fill" id="pomo-progress" style="width:100%;"></div>
+          </div>
+          <div class="pomo-controls">
+            <button type="button" class="ds-btn ds-btn-primary" id="pomo-start">Start</button>
+            <button type="button" class="ds-btn ds-btn-secondary" id="pomo-reset">Reset</button>
+          </div>
+        </div>
+        <p class="pomo-session" id="pomo-session">Sessions: <strong>0</strong></p>
+      </aside>
+
+      <!-- Center: Tasks -->
+      <section class="study-room-panel study-room-panel--tasks" aria-label="Task list">
+        <h2 class="study-room-panel-title">My Tasks</h2>
+        <div class="ds-card ds-card-static p-5" style="margin-bottom:1rem;">
+          <form id="task-form" class="task-add-form" aria-label="Add a task">
+            <input type="text" id="task-input" class="ds-field-input" placeholder="Add a to-do..." maxlength="200" autocomplete="off" required>
+            <button type="submit" class="ds-btn ds-btn-primary">Add</button>
+          </form>
+        </div>
+        <div class="task-toolbar">
+          <div id="task-filters" class="ds-filter-bar" role="tablist" aria-label="Filter tasks"></div>
+          <div class="task-stats" id="task-stats" aria-live="polite"></div>
+        </div>
+        <ul id="task-list" class="task-list" aria-label="Tasks"></ul>
+        <div id="task-empty" class="ds-empty" hidden>
+          <p>No tasks yet. Add one above to get started.</p>
+        </div>
+      </section>
+
+      <!-- Right: Chat -->
+      <aside class="study-room-panel study-room-panel--chat" aria-label="Room chat">
+        <div class="chat-header">
+          <h2 class="study-room-panel-title">Room Chat</h2>
+          <div class="chat-online" id="chat-online" aria-live="polite"></div>
+        </div>
+        <div class="ds-card ds-card-static chat-card">
+          <div class="chat-messages" id="chat-messages" aria-live="polite"></div>
+          <form id="chat-form" class="chat-form" aria-label="Send a message">
+            <input type="text" id="chat-input" class="ds-field-input" placeholder="Say something..." maxlength="300" autocomplete="off">
+            <button type="submit" class="ds-btn ds-btn-primary chat-send">Send</button>
+          </form>
+        </div>
+      </aside>
+    </div>
+  </main>
+  <script type="module" src="/js/pages/study-room.js"></script>
+</body>
+</html>

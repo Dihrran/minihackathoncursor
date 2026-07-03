@@ -144,6 +144,39 @@
   background: rgba(0, 0, 0, 0.08);
 }
 
+.ds-study-room-btn {
+  display: none;
+  align-items: center;
+  padding: 0.45rem 0.85rem;
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  text-decoration: none;
+  color: var(--ds-black);
+  border: 2px solid var(--ds-black);
+  background: var(--ds-white);
+  white-space: nowrap;
+  transition: background 0.15s;
+}
+
+.ds-study-room-btn:hover {
+  background: rgba(0, 0, 0, 0.08);
+  text-decoration: none;
+  color: var(--ds-black);
+}
+
+.ds-study-room-btn.is-active {
+  background: var(--ds-black);
+  color: var(--ds-white);
+}
+
+@media (min-width: 768px) {
+  .ds-study-room-btn {
+    display: inline-flex;
+  }
+}
+
 @media (min-width: 1024px) {
   .ds-menu-toggle {
     display: none;
